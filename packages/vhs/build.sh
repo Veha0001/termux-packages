@@ -19,7 +19,6 @@ termux_step_make(){
 	-X main.Version=${TERMUX_PKG_VERSION} \
 	-X main.CommitSHA=$(git rev-parse HEAD) \
 	-X main.CommitDate=$(git show --no-patch --format=%cd --date=format:%Y-%m-%d)"
-	
 }
 
 termux_step_make_install(){
@@ -27,7 +26,7 @@ termux_step_make_install(){
 	mkdir -p "${TERMUX_PREFIX}/share/zsh/site-functions"
 	mkdir -p "${TERMUX_PREFIX}/share/fish/vendor_completions.d"
 	mkdir -p "${TERMUX_PREFIX}/share/bash-completion/completions"
-	
+
 	unset GOOS GOARCH CGO_LDFLAGS
 	unset CC CXX CFLAGS CXXFLAGS LDFLAGS
 	go run .             man > "${TERMUX_PREFIX}/share/man/man1/${TERMUX_PKG_NAME}.1"
